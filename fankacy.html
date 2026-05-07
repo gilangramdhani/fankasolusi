@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fankacy - Digital Advertising & Social Media Management. Solusi pemasaran digital profesional untuk bisnis Anda.">
+    <title>Fankacy | Digital Advertising &amp; Social Media</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --fk-primary: #2d0080;
+            --fk-mid:     #5B4FCF;
+            --fk-light:   #7c6fd4;
+            --fk-accent:  #a89cf0;
+        }
+        .fk-badge { background:rgba(165,138,255,0.18) !important; border-color:rgba(165,138,255,0.4) !important; color:#c5b8ff !important; }
+        .fk-stat { background:rgba(165,138,255,0.12); border:1px solid rgba(165,138,255,0.25); border-radius:12px; padding:22px 18px; text-align:center; }
+        .fk-stat-num { font-size:2rem; font-weight:900; color:var(--fk-accent); line-height:1; }
+        .fk-stat-lbl { font-size:0.7rem; color:rgba(255,255,255,0.65); margin-top:4px; }
+        .sm-outer {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:22px;
+        }
+        .sm-card {
+            border-radius:var(--radius);
+            overflow:hidden;
+            box-shadow:var(--shadow-sm);
+            border:1px solid var(--border);
+            transition:var(--transition);
+        }
+        .sm-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); }
+        .sm-card-header {
+            padding:22px 22px 16px;
+            display:flex;
+            align-items:center;
+            gap:14px;
+        }
+        .sm-card-header .sm-icon { font-size:1.8rem; color:#fff; }
+        .sm-card-header h4 { font-size:1rem; font-weight:800; color:#fff; margin:0; }
+        .sm-card-header span { font-size:0.72rem; color:rgba(255,255,255,0.7); }
+        .sm-card-body { background:#fff; padding:20px 22px; }
+        .sm-card-body ul { list-style:none; padding:0; margin:0; }
+        .sm-card-body ul li { font-size:0.8rem; color:var(--text-gray); padding:6px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
+        .sm-card-body ul li:last-child { border-bottom:none; }
+        .sm-card-body ul li i { color:var(--fk-mid); font-size:0.8rem; }
+        /* Platform colors */
+        .sm-ig { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); }
+        .sm-fb { background:linear-gradient(135deg,#1877f2,#0d5db7); }
+        .sm-li { background:linear-gradient(135deg,#0077b5,#00a0dc); }
+        .sm-tt { background:linear-gradient(135deg,#010101,#2b2b2b); }
+        .sm-tw { background:linear-gradient(135deg,#1da1f2,#0d8ecf); }
+        .sm-yt { background:linear-gradient(135deg,#ff0000,#c0392b); }
+        /* service cards for non-social offerings */
+        .fk-svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+        .fk-svc-card { background:#fff; border-radius:var(--radius); padding:28px 22px; border:1px solid var(--border); border-left:4px solid var(--fk-mid); transition:var(--transition); }
+        .fk-svc-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); }
+        .fk-svc-card .fk-ico { width:50px;height:50px;background:linear-gradient(135deg,var(--fk-primary),var(--fk-mid));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;margin-bottom:14px; }
+        .fk-svc-card h4 { font-size:0.92rem;font-weight:800;color:var(--fk-primary);margin-bottom:8px; }
+        .fk-svc-card p { font-size:0.8rem;color:var(--text-gray);line-height:1.7; }
+        @media(max-width:1024px){ .sm-outer { grid-template-columns:repeat(2,1fr); } .fk-svc-grid { grid-template-columns:repeat(2,1fr); } }
+        @media(max-width:600px){ .sm-outer { grid-template-columns:1fr; } .fk-svc-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- Page Hero -->
+    <section class="page-hero prod-page-hero fk" aria-label="Fankacy hero">
+        <div class="container page-hero-inner">
+            <div class="ph-badge fk-badge"><i class="fas fa-bullhorn"></i> PRODUK PT. FANKA SOLUSI INDONESIA</div>
+            <h1><span class="hl">Fankacy</span></h1>
+            <p>Digital Advertising &amp; Social Media Management yang profesional, kreatif, dan berbasis data untuk memaksimalkan pertumbuhan bisnis Anda di era digital.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="services.html">Layanan</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Fankacy</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:680px;margin:32px auto 0;">
+                <div class="fk-stat"><div class="fk-stat-num">6+</div><div class="fk-stat-lbl">Platform</div></div>
+                <div class="fk-stat"><div class="fk-stat-num">360°</div><div class="fk-stat-lbl">Digital Strategy</div></div>
+                <div class="fk-stat"><div class="fk-stat-num">ROI</div><div class="fk-stat-lbl">Data-Driven</div></div>
+                <div class="fk-stat"><div class="fk-stat-num">24/7</div><div class="fk-stat-lbl">Monitoring</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Fankacy -->
+    <section class="sec" style="background:#fff;">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal-l">
+                    <h3 style="color:#2d0080;">Apa itu Fankacy?</h3>
+                    <p>Fankacy adalah divisi pemasaran digital dan manajemen media sosial dari PT. Fanka Solusi Indonesia. Kami hadir bukan hanya sebagai pengelola akun sosial media biasa, tetapi sebagai mitra strategis pertumbuhan bisnis Anda di dunia digital.</p>
+                    <p>Kami menggabungkan kreativitas konten, strategi berbasis data, dan pemahaman mendalam tentang perilaku konsumen digital untuk menghasilkan kampanye yang berdampak nyata pada brand awareness, engagement, dan konversi.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle" style="color:#5B4FCF;"></i><span>Tim kreatif berpengalaman di pemasaran digital</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#5B4FCF;"></i><span>Strategi konten berbasis data &amp; analitik</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#5B4FCF;"></i><span>Pengelolaan multi-platform terintegrasi</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#5B4FCF;"></i><span>Laporan performa transparan &amp; berkala</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#5B4FCF;"></i><span>Kampanye iklan berbayar yang teroptimasi</span></li>
+                    </ul>
+                </div>
+                <div class="about-visual reveal-r" style="background:linear-gradient(145deg,#2d0080,#5B4FCF);">
+                    <div class="main-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Fankacy</h3>
+                    <div class="sub-text">Digital Advertising &amp; Social Media</div>
+                    <div class="mini-stats">
+                        <div class="mini-stat"><div class="mn"><i class="fab fa-instagram"></i></div><div class="ml">Instagram</div></div>
+                        <div class="mini-stat"><div class="mn"><i class="fab fa-linkedin"></i></div><div class="ml">LinkedIn</div></div>
+                        <div class="mini-stat"><div class="mn"><i class="fab fa-tiktok"></i></div><div class="ml">TikTok</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Management Platforms -->
+    <section class="sec" style="background:var(--bg);">
+        <div class="container">
+            <div class="sec-title reveal">
+                <h2 style="color:#2d0080;">Platform Sosial Media <span class="underline-bar" style="background:linear-gradient(90deg,#5B4FCF,#2d0080);"></span></h2>
+                <p>Pengelolaan akun profesional lintas platform dengan strategi konten yang disesuaikan</p>
+            </div>
+            <div class="sm-outer">
+                <div class="sm-card reveal d1">
+                    <div class="sm-card-header sm-ig">
+                        <div class="sm-icon"><i class="fab fa-instagram"></i></div>
+                        <div><h4>Instagram</h4><span>Feed, Reels &amp; Stories</span></div>
+                    </div>
+                    <div class="sm-card-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Strategi konten &amp; editorial kalender</li>
+                            <li><i class="fas fa-check"></i>Desain feed estetis &amp; on-brand</li>
+                            <li><i class="fas fa-check"></i>Produksi &amp; editing Reels</li>
+                            <li><i class="fas fa-check"></i>Hashtag &amp; growth strategy</li>
+                            <li><i class="fas fa-check"></i>Community management &amp; DM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sm-card reveal d2">
+                    <div class="sm-card-header sm-fb">
+                        <div class="sm-icon"><i class="fab fa-facebook-f"></i></div>
+                        <div><h4>Facebook</h4><span>Pages &amp; Business Ads</span></div>
+                    </div>
+                    <div class="sm-card-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Pengelolaan Facebook Business Page</li>
+                            <li><i class="fas fa-check"></i>Facebook Ads &amp; Boosted Posts</li>
+                            <li><i class="fas fa-check"></i>Targeting audiens yang presisi</li>
+                            <li><i class="fas fa-check"></i>Retargeting &amp; lookalike audience</li>
+                            <li><i class="fas fa-check"></i>Pelaporan ROI kampanye</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sm-card reveal d3">
+                    <div class="sm-card-header sm-li">
+                        <div class="sm-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div><h4>LinkedIn</h4><span>B2B &amp; Professional</span></div>
+                    </div>
+                    <div class="sm-card-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Company page optimization</li>
+                            <li><i class="fas fa-check"></i>Konten thought leadership</li>
+                            <li><i class="fas fa-check"></i>LinkedIn Ads &amp; Sponsored Content</li>
+                            <li><i class="fas fa-check"></i>B2B lead generation</li>
+                            <li><i class="fas fa-check"></i>Employee advocacy program</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sm-card reveal d1">
+                    <div class="sm-card-header sm-tt">
+                        <div class="sm-icon"><i class="fab fa-tiktok"></i></div>
+                        <div><h4>TikTok</h4><span>Short Video &amp; Viral</span></div>
+                    </div>
+                    <div class="sm-card-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Produksi konten video pendek</li>
+                            <li><i class="fas fa-check"></i>Trend research &amp; viral content</li>
+                            <li><i class="fas fa-check"></i>TikTok Ads &amp; Branded Effects</li>
+                            <li><i class="fas fa-check"></i>Kolaborasi dengan kreator/influencer</li>
+                            <li><i class="fas fa-check"></i>Optimasi algoritma TikTok</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sm-card reveal d2">
+                    <div class="sm-card-header sm-tw">
+                        <div class="sm-icon"><i class="fab fa-twitter"></i></div>
+                        <div><h4>Twitter / X</h4><span>Engagement &amp; Trending</span></div>
+                    </div>
+                    <div class="sm-card-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Content strategy &amp; tone of voice</li>
+                            <li><i class="fas fa-check"></i>Real-time engagement &amp; trending topics</li>
+                            <li><i class="fas fa-check"></i>Twitter Ads &amp; Promoted Tweets</li>
+                            <li><i class="fas fa-check"></i>Community building &amp; reply management</li>
+                            <li><i class="fas fa-check"></i>Brand monitoring &amp; mention tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sm-card reveal d3">
+                    <div class="sm-card-header sm-yt">
+                        <div class="sm-icon"><i class="fab fa-youtube"></i></div>
+                        <div><h4>YouTube</h4><span>Video Content &amp; SEO</span></div>
+                    </div>
+                    <div class="sm-card-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Strategi &amp; produksi video</li>
+                            <li><i class="fas fa-check"></i>YouTube SEO &amp; metadata optimasi</li>
+                            <li><i class="fas fa-check"></i>YouTube Ads &amp; in-stream</li>
+                            <li><i class="fas fa-check"></i>Channel branding &amp; thumbnail</li>
+                            <li><i class="fas fa-check"></i>Analytics &amp; retention analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Digital Services -->
+    <section class="sec" style="background:#fff;">
+        <div class="container">
+            <div class="sec-title reveal">
+                <h2 style="color:#2d0080;">Layanan Digital Lainnya <span class="underline-bar" style="background:linear-gradient(90deg,#5B4FCF,#2d0080);"></span></h2>
+                <p>Solusi pemasaran digital terpadu melampaui batas sosial media</p>
+            </div>
+            <div class="fk-svc-grid">
+                <div class="fk-svc-card reveal d1">
+                    <div class="fk-ico"><i class="fas fa-palette"></i></div>
+                    <h4>Brand Identity &amp; Design</h4>
+                    <p>Pengembangan identitas brand visual yang kuat: logo, brand guideline, color palette, typography, dan semua aset visual yang konsisten untuk semua platform.</p>
+                </div>
+                <div class="fk-svc-card reveal d2">
+                    <div class="fk-ico"><i class="fas fa-ad"></i></div>
+                    <h4>Digital Advertising</h4>
+                    <p>Kampanye iklan digital berbayar yang teroptimasi di berbagai platform (Meta Ads, Google Ads, TikTok Ads) dengan fokus pada konversi dan ROI maksimal.</p>
+                </div>
+                <div class="fk-svc-card reveal d3">
+                    <div class="fk-ico"><i class="fas fa-pen-nib"></i></div>
+                    <h4>Content Creation</h4>
+                    <p>Produksi konten berkualitas tinggi: copywriting, desain grafis, fotografi produk, video editing, dan animasi yang sesuai identitas brand Anda.</p>
+                </div>
+                <div class="fk-svc-card reveal d1">
+                    <div class="fk-ico"><i class="fas fa-chart-pie"></i></div>
+                    <h4>Analytics &amp; Insights</h4>
+                    <p>Analisis data performa mendalam, pelaporan rutin yang transparan, dan insight berbasis data untuk terus meningkatkan strategi pemasaran digital Anda.</p>
+                </div>
+                <div class="fk-svc-card reveal d2">
+                    <div class="fk-ico"><i class="fas fa-users"></i></div>
+                    <h4>Community Management</h4>
+                    <p>Pengelolaan komunitas online yang aktif dan responsif: moderasi komentar, penanganan DM, program engagement, dan membangun loyalitas follower.</p>
+                </div>
+                <div class="fk-svc-card reveal d3">
+                    <div class="fk-ico"><i class="fas fa-star"></i></div>
+                    <h4>Influencer Marketing</h4>
+                    <p>Strategi dan eksekusi kolaborasi dengan influencer yang tepat sasaran untuk memperluas jangkauan brand dan meningkatkan kepercayaan konsumen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:linear-gradient(135deg,#2d0080,#5B4FCF);padding:70px 0;">
+        <div class="container" style="text-align:center;">
+            <div class="reveal">
+                <h2 style="color:#fff;font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;margin-bottom:14px;">Siap Mengembangkan Bisnis Digital Anda?</h2>
+                <p style="color:rgba(255,255,255,0.7);max-width:520px;margin:0 auto 32px;font-size:0.92rem;">Konsultasikan strategi pemasaran digital Anda dengan tim Fankacy dan dapatkan proposal yang disesuaikan dengan kebutuhan bisnis Anda.</p>
+                <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+                    <a href="contact.html" class="btn btn-blue" style="background:#fff;color:#2d0080;"><i class="fas fa-envelope"></i> Konsultasi Gratis</a>
+                    <a href="https://wa.me/6287872586115" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/shared.js"></script>
+</body>
+</html>

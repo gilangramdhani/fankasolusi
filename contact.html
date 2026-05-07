@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hubungi PT. Fanka Solusi Indonesia - +62878-7258-6115 | fankasolusindo@gmail.com | Bekasi, Jawa Barat.">
+    <title>Kontak | PT. Fanka Solusi Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Page header">
+        <div class="container page-hero-inner">
+            <div class="ph-badge"><i class="fas fa-envelope"></i> HUBUNGI KAMI</div>
+            <h1>Kontak &amp; <span class="hl">Lokasi</span></h1>
+            <p>Kami siap membantu Anda menemukan solusi engineering terbaik. Hubungi tim kami sekarang!</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Kontak</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="sec" style="background:#fff;">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Info -->
+                <div class="c-info reveal-l">
+                    <div class="c-card">
+                        <div class="c-card-head">
+                            <div class="c-ico"><i class="fas fa-map-marker-alt"></i></div>
+                            <h4>Alamat Kantor</h4>
+                        </div>
+                        <p><strong>Kantor Utama:</strong><br>Ruko Revo Town Mall Bekasi No. 40, South Bekasi 17148</p>
+                        <p style="margin-top:10px;"><strong>Kantor Operasional 1:</strong><br>Perumahan Mangun Jaya Indah 2, Jl Kenari 1 Blok C3 No 24–26, South Tambun – Kab. Bekasi</p>
+                        <p style="margin-top:10px;"><strong>Kantor Operasional 2:</strong><br>Ruko Sentra Niaga Kalimas Blok AA-03 Setidarma, South Tambun – Kab. Bekasi</p>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card-head">
+                            <div class="c-ico"><i class="fas fa-phone-alt"></i></div>
+                            <h4>Telepon / WhatsApp</h4>
+                        </div>
+                        <a href="tel:+6287872586115">+62878-7258-6115</a>
+                        <a href="https://wa.me/6287872586115" class="wa-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                        </a>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card-head">
+                            <div class="c-ico"><i class="fas fa-envelope"></i></div>
+                            <h4>Email &amp; Website</h4>
+                        </div>
+                        <a href="mailto:fankasolusindo@gmail.com">fankasolusindo@gmail.com</a>
+                        <a href="https://www.fankasolusindo.co.id" target="_blank" rel="noopener noreferrer">www.fankasolusindo.co.id</a>
+                    </div>
+                    <div class="map-box">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Bekasi, Jawa Barat, Indonesia</p>
+                        <small>Peta Lokasi Kantor</small>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="c-form-sec reveal-r">
+                    <h3><i class="fas fa-paper-plane"></i> Kirim Pesan</h3>
+                    <form id="contactForm" novalidate>
+                        <div class="fg">
+                            <label for="fName">Nama Lengkap <span>*</span></label>
+                            <input type="text" id="fName" placeholder="Masukkan nama Anda" autocomplete="name" required>
+                        </div>
+                        <div class="fg">
+                            <label for="fEmail">Email <span>*</span></label>
+                            <input type="email" id="fEmail" placeholder="email@perusahaan.com" autocomplete="email" required>
+                        </div>
+                        <div class="fg">
+                            <label for="fPhone">Nomor Telepon</label>
+                            <input type="tel" id="fPhone" placeholder="+62 xxx xxxx xxxx" autocomplete="tel">
+                        </div>
+                        <div class="fg">
+                            <label for="fService">Layanan yang Diminati</label>
+                            <select id="fService">
+                                <option value="">-- Pilih Layanan --</option>
+                                <option>Services &amp; Maintenance (CEMS/AQMS)</option>
+                                <option>Engineering Design</option>
+                                <option>IT &amp; Integration System</option>
+                                <option>Supply &amp; Procurement</option>
+                                <option>Quanta Proust - Lab Uji &amp; Audit CEMS</option>
+                                <option>Fankacy - Advertising &amp; Social Media</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="fg">
+                            <label for="fMsg">Pesan <span>*</span></label>
+                            <textarea id="fMsg" placeholder="Tuliskan kebutuhan atau pertanyaan Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-blue" style="width:100%;justify-content:center;" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/shared.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const name  = document.getElementById('fName').value.trim();
+            const email = document.getElementById('fEmail').value.trim();
+            const msg   = document.getElementById('fMsg').value.trim();
+            if (!name || !email || !msg) { showToast('⚠️ Harap lengkapi semua field yang wajib diisi.'); return; }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('⚠️ Format email tidak valid.'); return; }
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Pesan Terkirim!';
+                btn.style.background = 'var(--secondary)';
+                showToast('✅ Terima kasih! Pesan Anda telah diterima. Tim kami akan menghubungi Anda segera.');
+                document.getElementById('contactForm').reset();
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Pesan';
+                    btn.disabled = false;
+                    btn.style.background = '';
+                }, 3500);
+            }, 1600);
+        });
+    </script>
+</body>
+</html>

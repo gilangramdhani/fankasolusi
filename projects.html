@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rekam jejak proyek PT. Fanka Solusi Indonesia 2021-2025. Audit CEMS, instalasi, kalibrasi di berbagai industri strategis Indonesia.">
+    <title>Proyek | PT. Fanka Solusi Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .stats-strip { background: var(--primary); padding: 40px 0; }
+        .stats-strip-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:16px;text-align:center; }
+        .ss-item { color:#fff; }
+        .ss-num { font-size:2rem;font-weight:900;color:#3AB54A;line-height:1; }
+        .ss-lbl { font-size:0.72rem;color:rgba(255,255,255,0.7);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px; }
+        @media(max-width:768px){ .stats-strip-grid { grid-template-columns:repeat(3,1fr); } }
+        @media(max-width:480px){ .stats-strip-grid { grid-template-columns:repeat(2,1fr); } }
+    </style>
+</head>
+<body>
+
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Page header">
+        <div class="container page-hero-inner">
+            <div class="ph-badge"><i class="fas fa-folder-open"></i> PENGALAMAN PROYEK</div>
+            <h1>Proyek &amp; <span class="hl">Portofolio</span></h1>
+            <p>Rekam jejak proyek kami dari 2021 hingga 2025 di berbagai industri strategis Indonesia</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Proyek</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <div class="stats-strip">
+        <div class="container">
+            <div class="stats-strip-grid">
+                <div class="ss-item"><div class="ss-num">47+</div><div class="ss-lbl">Total Proyek</div></div>
+                <div class="ss-item"><div class="ss-num">5</div><div class="ss-lbl">Tahun Aktif</div></div>
+                <div class="ss-item"><div class="ss-num">30+</div><div class="ss-lbl">Klien Dilayani</div></div>
+                <div class="ss-item"><div class="ss-num">15+</div><div class="ss-lbl">Kota di Indonesia</div></div>
+                <div class="ss-item"><div class="ss-num">100%</div><div class="ss-lbl">Kepuasan Klien</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Table -->
+    <section class="sec" style="background:#fff;">
+        <div class="container">
+            <div class="sec-title reveal">
+                <h2>Daftar Proyek <span class="underline-bar"></span></h2>
+                <p>Filter berdasarkan tahun atau cari proyek dan lokasi spesifik</p>
+            </div>
+
+            <div class="proj-controls reveal">
+                <div class="filter-group" id="filterGroup">
+                    <button class="f-btn active" data-year="all">Semua</button>
+                    <button class="f-btn" data-year="2021">2021</button>
+                    <button class="f-btn" data-year="2022">2022</button>
+                    <button class="f-btn" data-year="2023">2023</button>
+                    <button class="f-btn" data-year="2024">2024</button>
+                    <button class="f-btn" data-year="2025">2025</button>
+                </div>
+                <div class="search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="projSearch" placeholder="Cari proyek atau lokasi..." aria-label="Search projects">
+                </div>
+            </div>
+
+            <div class="table-wrap reveal">
+                <table class="proj-table" role="table" aria-label="Project history">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tahun</th>
+                            <th>Deskripsi Proyek</th>
+                            <th>Lokasi / Klien</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projBody"></tbody>
+                </table>
+                <div class="no-res" id="noRes">
+                    <i class="fas fa-search"></i>
+                    Tidak ada proyek yang ditemukan.
+                </div>
+            </div>
+            <div class="proj-count" id="projCount"></div>
+        </div>
+    </section>
+
+    <script src="js/shared.js"></script>
+    <script>
+        const PROJECTS = [
+            { year:2021, desc:"Calibration Drift Test CEMS 1 Stack",              loc:"PLTU Lontar" },
+            { year:2022, desc:"Audit RATA CEMS 3 Stack",                          loc:"Pupuk Kaltim" },
+            { year:2022, desc:"Audit RCA & RATA CEMS 5 Stack",                    loc:"UPDK Keramasan" },
+            { year:2022, desc:"Audit RCA & RATA CEMS 2 Prilling Tower",           loc:"Pupuk Kujang" },
+            { year:2022, desc:"Audit RCA CEMS 2 Stack",                           loc:"DSSP Kendari" },
+            { year:2022, desc:"Audit RCA CEMS 1 Stack",                           loc:"Semen Batu Raja" },
+            { year:2022, desc:"Audit RCA CEMS 1 Priling Tower",                   loc:"Pupuk Iskandar Muda" },
+            { year:2022, desc:"Audit RCA CEMS 1 Stack",                           loc:"Semen Gresik" },
+            { year:2022, desc:"Audit RCA, CGA & RATA CEMS 1 Stack",               loc:"Kaltim Daya Mandiri" },
+            { year:2022, desc:"Instalasi & Integrasi CEMS 1 Priling Tower",       loc:"Pupuk Iskandar Muda" },
+            { year:2023, desc:"Audit RCA & CGA CEMS 1 Stack",                     loc:"Pertamina Hulu Rokan" },
+            { year:2023, desc:"Audit RCA & CGA 6 Stack",                          loc:"UPDK Tambora NTB" },
+            { year:2023, desc:"Audit RCA & CGA 5 Stack",                          loc:"UPDK Keramasan" },
+            { year:2023, desc:"Calibration Drift Test 1 Stack",                   loc:"Medco Ratch Riau" },
+            { year:2023, desc:"Audit RCA CEMS 1 Stack",                           loc:"PLTU Muara Karang" },
+            { year:2023, desc:"Audit RCA, CGA & RATA Test 2 Stack",               loc:"PLTU Balik Papan" },
+            { year:2023, desc:"Instalasi SO2 Analyser CEMS 7 Stack",              loc:"Freeport Gresik" },
+            { year:2023, desc:"Instalasi & Integrasi CEMS 1 Stack MGT",           loc:"Pertamina Hulu Rokan" },
+            { year:2023, desc:"Instalasi & Integrasi CEMS 6 Stack",               loc:"UPDK Tambora NTB" },
+            { year:2023, desc:"Instalasi Analyser AQMS",                          loc:"Merdeka Tsingshan Indonesia" },
+            { year:2023, desc:"Instalasi & Integrasi CEMS 1 Stack",               loc:"Aspex Kumbong" },
+            { year:2023, desc:"Instalasi & Integrasi CEMS 2 Stack",               loc:"Merdeka Tsingshan Indonesia" },
+            { year:2024, desc:"Performance Test & Noise Monitoring 2 Stack",      loc:"PLTU Asam Asam" },
+            { year:2024, desc:"Audit RCA & CGA CEMS 2 Stack",                     loc:"Virtue Nickel Dragon I" },
+            { year:2024, desc:"Audit RCA & CGA CEMS 1 Priling Tower",             loc:"Pupuk Kujang" },
+            { year:2024, desc:"Audit RCA & CGA CEMS 2 Stack",                     loc:"PLTU Asam Asam" },
+            { year:2024, desc:"Audit CGA CEMS 2 Stack",                           loc:"PLTU Teluk Sirih" },
+            { year:2024, desc:"Audit RCA & CGA CEMS 4 Stack",                     loc:"RKEF Harita Group" },
+            { year:2024, desc:"Audit RCA CEMS 1 Stack",                           loc:"PLTU Muara Karang" },
+            { year:2024, desc:"Audit RCA & CGA CEMS 13 Stack",                    loc:"PLTMG Arun" },
+            { year:2024, desc:"Audit RCA & CGA CEMS 1 Stack",                     loc:"PLTMG Luwuk" },
+            { year:2024, desc:"Audit CGA CEMS 1 Stack",                           loc:"PLGTU Muara Karang" },
+            { year:2024, desc:"Audit RCA & CGA CEMS 1 Stack",                     loc:"Pupuk Iskandar Muda" },
+            { year:2024, desc:"Inspection & Calibration Fuel Tank Dispenser",     loc:"PLTU Asam Asam" },
+            { year:2024, desc:"Calibration Trafo & EDG",                          loc:"PLTU Asam Asam" },
+            { year:2024, desc:"Calibration Truck Scale",                          loc:"PLTU Asam Asam" },
+            { year:2024, desc:"Instalasi & Integrasi CEMS 1 Priling Tower",       loc:"Pupuk Kujang" },
+            { year:2024, desc:"Instalasi & Integrasi CEMS 2 Stack",               loc:"Virtue Nickel Dragon Industry" },
+            { year:2024, desc:"Instalasi & Integrasi CEMS 5 Stack",               loc:"PLTMG Luwuk" },
+            { year:2024, desc:"Integrasi CEMS 13 Stack",                          loc:"PLTMG Arun" },
+            { year:2025, desc:"Audit RCA, CGA & HG CEMS 1 Stack",                loc:"Cirebon Power" },
+            { year:2025, desc:"Audit RCA & CGA CEMS 2 Stack",                     loc:"Obi Sinar Timur" },
+            { year:2025, desc:"Audit RCA & CGA CEMS 6 Stack",                     loc:"UPDK Tambora NTB" },
+            { year:2025, desc:"Audit RATA CEMS 1 Stack",                          loc:"Badak LNG" },
+            { year:2025, desc:"Instalasi & Integrasi CEMS 1 Stack",               loc:"Obi Sinar Timur" },
+            { year:2025, desc:"Supply Spare Part Sick CEMS 1 Set",                loc:"PLTMG Bima" },
+            { year:2025, desc:"Assessment CEMS 2 Stack",                          loc:"PLTMG Tambora" }
+        ];
+
+        function escHtml(s) {
+            return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        let activeYear = 'all', searchQ = '';
+
+        function renderProjects() {
+            const tbody = document.getElementById('projBody');
+            const noRes = document.getElementById('noRes');
+            const cntEl = document.getElementById('projCount');
+            const list = PROJECTS.filter(p => {
+                const yOk = activeYear === 'all' || p.year.toString() === activeYear;
+                const sOk = !searchQ || p.desc.toLowerCase().includes(searchQ) || p.loc.toLowerCase().includes(searchQ);
+                return yOk && sOk;
+            });
+            if (!list.length) {
+                tbody.innerHTML = '';
+                noRes.style.display = 'block';
+                cntEl.textContent = '';
+                return;
+            }
+            noRes.style.display = 'none';
+            tbody.innerHTML = list.map((p,i) => `
+                <tr>
+                    <td style="color:var(--text-gray);font-size:0.78rem;">${i+1}</td>
+                    <td><span class="yr-badge y${p.year}">${p.year}</span></td>
+                    <td>${escHtml(p.desc)}</td>
+                    <td><span class="loc-tag"><i class="fas fa-map-marker-alt"></i> ${escHtml(p.loc)}</span></td>
+                </tr>`).join('');
+            cntEl.textContent = `Menampilkan ${list.length} dari ${PROJECTS.length} proyek`;
+        }
+
+        document.getElementById('filterGroup').addEventListener('click', e => {
+            const btn = e.target.closest('.f-btn');
+            if (!btn) return;
+            document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeYear = btn.dataset.year;
+            renderProjects();
+        });
+
+        document.getElementById('projSearch').addEventListener('input', e => {
+            searchQ = e.target.value.toLowerCase().trim();
+            renderProjects();
+        });
+
+        renderProjects();
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quanta Proust Indonesia - Penyedia layanan uji profesional dan audit kinerja CEMS. Lab terakreditasi, tenaga ahli bersertifikat.">
+    <title>Quanta Proust Indonesia | Lab Uji &amp; Audit CEMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --qp-primary:  #005c3a;
+            --qp-light:    #007a4d;
+            --qp-accent:   #3AB54A;
+        }
+        .qp-badge { background:rgba(58,181,74,0.18) !important; border-color:rgba(58,181,74,0.4) !important; color:#90f09a !important; }
+        .qp-stat { background:rgba(58,181,74,0.12); border:1px solid rgba(58,181,74,0.25); border-radius:12px; padding:22px 18px; text-align:center; }
+        .qp-stat-num { font-size:2rem; font-weight:900; color:var(--qp-accent); line-height:1; }
+        .qp-stat-lbl { font-size:0.7rem; color:rgba(255,255,255,0.65); margin-top:4px; }
+        .audit-type-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+        .audit-card {
+            background:#fff;
+            border:1px solid var(--border);
+            border-radius:var(--radius);
+            padding:28px 22px;
+            border-top:4px solid var(--qp-accent);
+            transition:var(--transition);
+        }
+        .audit-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); }
+        .audit-card .a-icon { width:52px;height:52px;background:linear-gradient(135deg,var(--qp-primary),var(--qp-light));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;margin-bottom:14px; }
+        .audit-card h4 { font-size:0.92rem;font-weight:800;color:var(--qp-primary);margin-bottom:8px; }
+        .audit-card p { font-size:0.8rem;color:var(--text-gray);line-height:1.7; }
+        .process-steps { display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative; }
+        .process-steps::before { content:'';position:absolute;top:36px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--qp-primary),var(--qp-accent));z-index:0; }
+        .step { text-align:center;position:relative;z-index:1; }
+        .step-num { width:72px;height:72px;background:linear-gradient(135deg,var(--qp-primary),var(--qp-light));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.6rem;color:#fff;border:4px solid #fff;box-shadow:0 4px 14px rgba(0,92,58,0.3); }
+        .step h4 { font-size:0.8rem;font-weight:800;color:var(--qp-primary);margin-bottom:6px; }
+        .step p { font-size:0.72rem;color:var(--text-gray);line-height:1.6;padding:0 8px; }
+        @media(max-width:768px){ .audit-type-grid { grid-template-columns:repeat(2,1fr); } .process-steps { grid-template-columns:1fr; } .process-steps::before { display:none; } }
+        @media(max-width:480px){ .audit-type-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- Page Hero -->
+    <section class="page-hero prod-page-hero qp" aria-label="Quanta Proust hero">
+        <div class="container page-hero-inner">
+            <div class="ph-badge qp-badge"><i class="fas fa-flask"></i> PRODUK PT. FANKA SOLUSI INDONESIA</div>
+            <h1><span class="hl">Quanta Proust</span><br>Indonesia</h1>
+            <p>Penyedia layanan uji profesional dan audit kinerja keseluruhan yang berhubungan dengan CEMS. Terakreditasi, terpercaya, dan berpengalaman.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="services.html">Layanan</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Quanta Proust Indonesia</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:680px;margin:32px auto 0;">
+                <div class="qp-stat"><div class="qp-stat-num">47+</div><div class="qp-stat-lbl">Proyek Audit</div></div>
+                <div class="qp-stat"><div class="qp-stat-num">30+</div><div class="qp-stat-lbl">Klien</div></div>
+                <div class="qp-stat"><div class="qp-stat-num">5+</div><div class="qp-stat-lbl">Tahun</div></div>
+                <div class="qp-stat"><div class="qp-stat-num">100%</div><div class="qp-stat-lbl">Bersertifikat</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About QP -->
+    <section class="sec" style="background:#fff;">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal-l">
+                    <h3 style="color:#005c3a;">Tentang Quanta Proust Indonesia</h3>
+                    <p>Quanta Proust Indonesia adalah divisi layanan laboratorium dan pengujian profesional dari PT. Fanka Solusi Indonesia. Kami mengkhususkan diri dalam layanan uji, audit, dan kalibrasi sistem pemantauan emisi (CEMS) secara komprehensif.</p>
+                    <p>Didukung oleh tenaga ahli bersertifikat dengan pengalaman lebih dari 5 tahun di industri energi, manufaktur, dan petrokimia, kami memberikan hasil uji yang akurat, reproducible, dan sesuai standar regulasi lingkungan Indonesia.</p>
+                    <p>Kami telah melayani klien-klien terkemuka seperti PLN Group, Pertamina Hulu Rokan, Pupuk Indonesia Group, Freeport Indonesia, dan berbagai perusahaan industri besar lainnya.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle" style="color:#3AB54A;"></i><span>Tenaga ahli bersertifikat KLHK (Kementerian Lingkungan Hidup)</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#3AB54A;"></i><span>Peralatan kalibrasi berstandar internasional</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#3AB54A;"></i><span>Laporan audit sesuai format regulasi KLHK</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#3AB54A;"></i><span>Pengalaman di PLTU, PLTMG, industri petrokimia &amp; manufaktur</span></li>
+                        <li><i class="fas fa-check-circle" style="color:#3AB54A;"></i><span>Mobilisasi cepat ke seluruh wilayah Indonesia</span></li>
+                    </ul>
+                </div>
+                <div class="about-visual reveal-r" style="background:linear-gradient(145deg,#003d27,#007a4d);">
+                    <div class="main-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Quanta Proust Indonesia</h3>
+                    <div class="sub-text">Professional Testing &amp; CEMS Audit</div>
+                    <div class="mini-stats">
+                        <div class="mini-stat"><div class="mn">RCA</div><div class="ml">Reference Cal.</div></div>
+                        <div class="mini-stat"><div class="mn">CGA</div><div class="ml">Cylinder Gas</div></div>
+                        <div class="mini-stat"><div class="mn">RATA</div><div class="ml">Rel. Accuracy</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Services -->
+    <section class="sec" style="background:var(--bg);">
+        <div class="container">
+            <div class="sec-title reveal">
+                <h2 style="color:#005c3a;">Layanan Audit &amp; Pengujian <span class="underline-bar" style="background:linear-gradient(90deg,#3AB54A,#005c3a);"></span></h2>
+                <p>Layanan uji dan audit komprehensif untuk memastikan performa CEMS sesuai standar regulasi</p>
+            </div>
+            <div class="audit-type-grid">
+                <div class="audit-card reveal d1">
+                    <div class="a-icon"><i class="fas fa-microscope"></i></div>
+                    <h4>Audit RCA</h4>
+                    <p>Reference Calibration Audit — Verifikasi akurasi kalibrasi alat CEMS menggunakan gas referensi standar bersertifikat untuk memastikan pembacaan yang akurat dan terpercaya.</p>
+                </div>
+                <div class="audit-card reveal d2">
+                    <div class="a-icon"><i class="fas fa-gas-pump"></i></div>
+                    <h4>Audit CGA</h4>
+                    <p>Cylinder Gas Audit — Pengujian menggunakan gas silinder bersertifikat untuk memvalidasi respons detektor CEMS terhadap konsentrasi gas yang diketahui.</p>
+                </div>
+                <div class="audit-card reveal d3">
+                    <div class="a-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>RATA Test</h4>
+                    <p>Relative Accuracy Test Audit — Pengujian akurasi relatif CEMS terhadap metode referensi manual (RM) sesuai persyaratan regulasi KLHK dan PROPER.</p>
+                </div>
+                <div class="audit-card reveal d1">
+                    <div class="a-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h4>Calibration Drift Test</h4>
+                    <p>Pengujian drift kalibrasi untuk memastikan CEMS mempertahankan akurasi pengukuran dalam jangka panjang antara periode kalibrasi resmi.</p>
+                </div>
+                <div class="audit-card reveal d2">
+                    <div class="a-icon"><i class="fas fa-volume-up"></i></div>
+                    <h4>Performance Test &amp; Noise Monitoring</h4>
+                    <p>Pengujian performa menyeluruh dan pemantauan kebisingan lingkungan sesuai standar Baku Mutu Lingkungan yang berlaku.</p>
+                </div>
+                <div class="audit-card reveal d3">
+                    <div class="a-icon"><i class="fas fa-search"></i></div>
+                    <h4>Assessment &amp; Inspection</h4>
+                    <p>Penilaian kondisi dan inspeksi menyeluruh sistem CEMS termasuk sensor, analyzer, probe, dan sistem pengambilan sampel gas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="sec" style="background:#fff;">
+        <div class="container">
+            <div class="sec-title reveal">
+                <h2 style="color:#005c3a;">Alur Kerja Kami <span class="underline-bar" style="background:linear-gradient(90deg,#3AB54A,#005c3a);"></span></h2>
+                <p>Proses standar yang terstruktur untuk memastikan kualitas dan ketepatan setiap pekerjaan</p>
+            </div>
+            <div class="process-steps reveal">
+                <div class="step">
+                    <div class="step-num"><i class="fas fa-phone-alt"></i></div>
+                    <h4>Konsultasi</h4>
+                    <p>Diskusi kebutuhan dan scope pekerjaan</p>
+                </div>
+                <div class="step">
+                    <div class="step-num"><i class="fas fa-file-alt"></i></div>
+                    <h4>Penawaran</h4>
+                    <p>Proposal teknis &amp; biaya</p>
+                </div>
+                <div class="step">
+                    <div class="step-num"><i class="fas fa-tools"></i></div>
+                    <h4>Pelaksanaan</h4>
+                    <p>Eksekusi pengujian di lapangan</p>
+                </div>
+                <div class="step">
+                    <div class="step-num"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Analisis</h4>
+                    <p>Analisis data &amp; interpretasi hasil</p>
+                </div>
+                <div class="step">
+                    <div class="step-num"><i class="fas fa-file-signature"></i></div>
+                    <h4>Laporan</h4>
+                    <p>Laporan resmi sesuai format regulasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:linear-gradient(135deg,#003d27,#007a4d);padding:70px 0;">
+        <div class="container" style="text-align:center;">
+            <div class="reveal">
+                <h2 style="color:#fff;font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;margin-bottom:14px;">Butuh Layanan Audit CEMS?</h2>
+                <p style="color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto 32px;font-size:0.92rem;">Konsultasikan kebutuhan pengujian dan audit CEMS Anda dengan tim ahli Quanta Proust Indonesia.</p>
+                <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+                    <a href="contact.html" class="btn btn-green"><i class="fas fa-envelope"></i> Konsultasi Gratis</a>
+                    <a href="https://wa.me/6287872586115" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/shared.js"></script>
+</body>
+</html>

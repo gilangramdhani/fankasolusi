@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PT. Fanka Solusi Indonesia - Perusahaan engineering terpercaya. CEMS, lingkungan, mekanikal, sipil, IT sejak 2020. All Services One Goal.">
+    <title>PT. Fanka Solusi Indonesia | ALL SERVICES ONE GOAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #home {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #001340 0%, #002580 45%, #003DA5 75%, #0050cc 100%);
+            padding-top: 70px;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+        }
+        .hero-blob { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(60px); }
+        .hero-blob-1 { width:520px;height:520px;background:rgba(58,181,74,0.18);top:-180px;right:-160px; }
+        .hero-blob-2 { width:340px;height:340px;background:rgba(91,79,207,0.2);bottom:-80px;left:-100px; }
+        .hero-blob-3 { width:200px;height:200px;background:rgba(255,255,255,0.06);top:30%;right:8%;border-radius:30px;transform:rotate(30deg);filter:none; }
+        .hero-inner { position:relative;z-index:1;text-align:center;padding:60px 24px 80px;max-width:900px;margin:0 auto; }
+        .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(58,181,74,0.18);border:1px solid rgba(58,181,74,0.4);color:#90f09a;font-size:0.73rem;font-weight:600;letter-spacing:1.5px;padding:6px 18px;border-radius:50px;margin-bottom:28px; }
+        .hero-title { font-size:clamp(2.1rem,6vw,4.2rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:14px; }
+        .hero-title .hl { color:#3AB54A; }
+        .hero-tagline { font-size:clamp(0.88rem,2.5vw,1.2rem);font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:5px;margin-bottom:22px; }
+        .hero-desc { font-size:0.97rem;color:rgba(255,255,255,0.65);max-width:580px;margin:0 auto 42px;line-height:1.85; }
+        .hero-btns { display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:72px; }
+        .hero-stats { display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:720px;margin:0 auto; }
+        .stat-box { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:22px 12px;backdrop-filter:blur(6px); }
+        .stat-num { font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:#3AB54A;line-height:1;margin-bottom:6px; }
+        .stat-lbl { font-size:0.68rem;color:rgba(255,255,255,0.62);text-transform:uppercase;letter-spacing:0.5px;font-weight:500; }
+
+        .home-svc { background:#fff; }
+        .svc-mini-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:22px; }
+        .svc-mini-card { background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:28px 20px;text-align:center;text-decoration:none;color:inherit;transition:all 0.3s;display:block; }
+        .svc-mini-card:hover { transform:translateY(-8px);box-shadow:0 8px 24px rgba(0,0,0,0.12);border-color:#003DA5; }
+        .svc-mini-card .svc-emoji { font-size:2.4rem;display:block;margin-bottom:12px; }
+        .svc-mini-card h3 { font-size:0.88rem;font-weight:800;color:#003DA5;margin-bottom:8px; }
+        .svc-mini-card p { font-size:0.76rem;color:#6b7280;line-height:1.6; }
+
+        .home-products { background:var(--bg); }
+        .hp-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:28px; }
+        .hp-card { border-radius:14px;overflow:hidden;text-decoration:none;display:block;border:1px solid var(--border);transition:all 0.3s; }
+        .hp-card:hover { transform:translateY(-8px);box-shadow:0 16px 40px rgba(0,0,0,0.14); }
+        .hp-card-top { padding:40px 36px;color:#fff;position:relative;overflow:hidden; }
+        .hp-card-top::before { content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04)1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04)1px,transparent 1px);background-size:44px 44px; }
+        .hp-icon { width:64px;height:64px;background:rgba(255,255,255,0.18);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin-bottom:16px;position:relative; }
+        .hp-card-top h3 { font-size:1.3rem;font-weight:800;position:relative;margin-bottom:6px; }
+        .hp-card-top small { font-size:0.72rem;opacity:0.75;letter-spacing:1px;font-weight:500;position:relative; }
+        .hp-card-body { padding:24px 36px;background:#fff;font-size:0.86rem;color:#6b7280;line-height:1.8; }
+        .hp-link { display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:0.83rem;margin-top:14px;text-decoration:none;transition:all 0.3s; }
+        .hp-link:hover { gap:10px; }
+
+        @media(max-width:768px){
+            .hero-stats { grid-template-columns:repeat(2,1fr); }
+            .svc-mini-grid { grid-template-columns:repeat(2,1fr); }
+            .hp-grid { grid-template-columns:1fr; }
+        }
+        @media(max-width:480px){ .svc-mini-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section id="home" aria-label="Hero">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+        <div class="hero-inner">
+            <div class="hero-badge"><i class="fas fa-award"></i> Berdiri Sejak 2020 &nbsp;·&nbsp; Bekasi, Indonesia</div>
+            <h1 class="hero-title">PT. <span class="hl">Fanka Solusi</span><br>Indonesia</h1>
+            <p class="hero-tagline">— ALL SERVICES ONE GOAL —</p>
+            <p class="hero-desc">Perusahaan engineering terpercaya yang menyediakan solusi komprehensif di bidang teknik sipil, mekanikal, elektrikal, kimia, dan lingkungan sejak 2020.</p>
+            <div class="hero-btns">
+                <a href="services.html" class="btn btn-green"><i class="fas fa-briefcase"></i> Lihat Layanan Kami</a>
+                <a href="contact.html" class="btn btn-outline-white"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-box"><div class="stat-num" data-target="5">0</div><div class="stat-lbl">Tahun Pengalaman</div></div>
+                <div class="stat-box"><div class="stat-num" data-target="47">0</div><div class="stat-lbl">Proyek Selesai</div></div>
+                <div class="stat-box"><div class="stat-num" data-target="30">0</div><div class="stat-lbl">Klien &amp; Mitra</div></div>
+                <div class="stat-box"><div class="stat-num" data-target="4">0</div><div class="stat-lbl">Divisi Bisnis</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES PREVIEW -->
+    <section class="sec home-svc" aria-label="Services preview">
+        <div class="container">
+            <div class="sec-title reveal">
+                <h2>Ruang Lingkup Bisnis <span class="underline-bar"></span></h2>
+                <p>Empat pilar layanan engineering komprehensif untuk mendukung kebutuhan industri Anda</p>
+            </div>
+            <div class="svc-mini-grid">
+                <a href="services.html" class="svc-mini-card reveal d1">
+                    <span class="svc-emoji">🔧</span>
+                    <h3>Services &amp; Maintenance</h3>
+                    <p>Assessment, instalasi, commissioning, CEMS, AQMS</p>
+                </a>
+                <a href="services.html" class="svc-mini-card reveal d2">
+                    <span class="svc-emoji">📐</span>
+                    <h3>Engineering Design</h3>
+                    <p>Environmental, mechanical, civil, instrument engineering</p>
+                </a>
+                <a href="services.html" class="svc-mini-card reveal d3">
+                    <span class="svc-emoji">💻</span>
+                    <h3>IT &amp; Integration System</h3>
+                    <p>DAS, DIS, website system, IT communication</p>
+                </a>
+                <a href="services.html" class="svc-mini-card reveal d4">
+                    <span class="svc-emoji">📦</span>
+                    <h3>Supply &amp; Procurement</h3>
+                    <p>Spare parts, OEM, original manufacturer, local material</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS PREVIEW -->
+    <section class="sec home-products" aria-label="Products">
+        <div class="container">
+            <div class="sec-title reveal">
+                <h2>Ekosistem Produk Kami <span class="underline-bar"></span></h2>
+                <p>Di bawah payung PT. Fanka Solusi Indonesia, kami menghadirkan produk dan layanan spesialis</p>
+            </div>
+            <div class="hp-grid">
+                <a href="quanta-proust.html" class="hp-card reveal d1">
+                    <div class="hp-card-top" style="background:linear-gradient(135deg,#003d27,#007a4d);">
+                        <div class="hp-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Quanta Proust Indonesia</h3>
+                        <small>LAB UJI PROFESIONAL &amp; AUDIT CEMS</small>
+                    </div>
+                    <div class="hp-card-body">
+                        Penyedia layanan uji profesional dan audit kinerja CEMS secara menyeluruh. Didukung tenaga ahli bersertifikat dan peralatan laboratorium berstandar industri.
+                        <div class="hp-link" style="color:#007a4d;">Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+                <a href="fankacy.html" class="hp-card reveal d2">
+                    <div class="hp-card-top" style="background:linear-gradient(135deg,#2d0080,#5B4FCF);">
+                        <div class="hp-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h3>Fankacy</h3>
+                        <small>ADVERTISING &amp; SOCIAL MEDIA</small>
+                    </div>
+                    <div class="hp-card-body">
+                        Solusi pemasaran digital dan manajemen media sosial profesional untuk bisnis Anda. Bangun kehadiran brand yang kuat di dunia digital.
+                        <div class="hp-link" style="color:#5B4FCF;">Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section style="background:linear-gradient(135deg,#002580,#003DA5);padding:70px 0;">
+        <div class="container" style="text-align:center;">
+            <div class="reveal">
+                <p style="color:rgba(255,255,255,0.7);font-size:0.88rem;letter-spacing:2px;font-weight:600;margin-bottom:12px;">SIAP BEKERJA SAMA?</p>
+                <h2 style="color:#fff;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:800;margin-bottom:20px;">Mari Diskusikan Proyek Anda</h2>
+                <p style="color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 36px;font-size:0.92rem;">Tim ahli kami siap membantu menemukan solusi engineering terbaik untuk kebutuhan industri Anda.</p>
+                <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                    <a href="contact.html" class="btn btn-green"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+                    <a href="projects.html" class="btn btn-outline-white"><i class="fas fa-folder-open"></i> Lihat Proyek Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/shared.js"></script>
+    <script>
+        let ran = false;
+        const heroStats = document.querySelector('.hero-stats');
+        function runCounter(el, target, dur=1800) {
+            let start = null;
+            function step(ts) {
+                if (!start) start = ts;
+                const p = Math.min((ts-start)/dur, 1);
+                const e = 1 - Math.pow(1-p, 3);
+                el.textContent = Math.floor(e*target) + (p<1?'':'+');
+                if (p<1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+        new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && !ran) {
+                ran = true;
+                document.querySelectorAll('.stat-num[data-target]').forEach((el,i) =>
+                    setTimeout(() => runCounter(el, +el.dataset.target), i*120));
+            }
+        }, {threshold:0.4}).observe(heroStats);
+    </script>
+</body>
+</html>
