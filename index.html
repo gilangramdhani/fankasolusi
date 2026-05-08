@@ -18,7 +18,7 @@
             align-items: center;
             overflow: hidden;
             background: linear-gradient(135deg, #001340 0%, #002580 45%, #003DA5 75%, #0050cc 100%);
-            padding-top: 70px;
+            padding-top: 80px;
         }
         #home::before {
             content: '';
@@ -33,18 +33,115 @@
         .hero-blob { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(60px); }
         .hero-blob-1 { width:520px;height:520px;background:rgba(58,181,74,0.18);top:-180px;right:-160px; }
         .hero-blob-2 { width:340px;height:340px;background:rgba(91,79,207,0.2);bottom:-80px;left:-100px; }
-        .hero-blob-3 { width:200px;height:200px;background:rgba(255,255,255,0.06);top:30%;right:8%;border-radius:30px;transform:rotate(30deg);filter:none; }
-        .hero-inner { position:relative;z-index:1;text-align:center;padding:60px 24px 80px;max-width:900px;margin:0 auto; }
+        .hero-blob-3 { width:240px;height:240px;background:rgba(255,255,255,0.05);top:30%;right:48%;border-radius:30px;transform:rotate(30deg);filter:none; }
+
+        /* === SPLIT HERO LAYOUT === */
+        .hero-inner {
+            position: relative; z-index: 1;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 52px; align-items: center;
+            width: 100%; max-width: 1280px;
+            margin: 0 auto; padding: 80px 40px 80px;
+        }
+        .hero-left { text-align: left; }
         .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(58,181,74,0.18);border:1px solid rgba(58,181,74,0.4);color:#90f09a;font-size:0.73rem;font-weight:600;letter-spacing:1.5px;padding:6px 18px;border-radius:50px;margin-bottom:28px; }
-        .hero-title { font-size:clamp(2.1rem,6vw,4.2rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:14px; }
+        .hero-title { font-size:clamp(2rem,4.5vw,3.4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px; }
         .hero-title .hl { color:#3AB54A; }
-        .hero-tagline { font-size:clamp(0.88rem,2.5vw,1.2rem);font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:5px;margin-bottom:22px; }
-        .hero-desc { font-size:0.97rem;color:rgba(255,255,255,0.65);max-width:580px;margin:0 auto 42px;line-height:1.85; }
-        .hero-btns { display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:72px; }
-        .hero-stats { display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:720px;margin:0 auto; }
-        .stat-box { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:22px 12px;backdrop-filter:blur(6px); }
-        .stat-num { font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:#3AB54A;line-height:1;margin-bottom:6px; }
-        .stat-lbl { font-size:0.68rem;color:rgba(255,255,255,0.62);text-transform:uppercase;letter-spacing:0.5px;font-weight:500; }
+        .hero-desc { font-size:0.96rem;color:rgba(255,255,255,0.68);margin-bottom:36px;line-height:1.85;max-width:480px; }
+        .hero-btns { display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px; }
+        .hero-stats { display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:380px; }
+        .stat-box { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:18px 16px;backdrop-filter:blur(6px); }
+        .stat-num { font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#3AB54A;line-height:1;margin-bottom:5px; }
+        .stat-lbl { font-size:0.66rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.5px;font-weight:500; }
+
+        /* === DASHBOARD MOCKUP === */
+        .hero-right { display:flex;align-items:center;justify-content:center; }
+        .mockup-wrap {
+            position: relative; width: 100%; max-width: 560px;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
+        }
+        .mockup-browser {
+            background: #0d1117; border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.12); overflow: hidden;
+        }
+        .mockup-bar {
+            background: #161b22; padding: 10px 16px;
+            display: flex; align-items: center; gap: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .mockup-dots { display:flex;gap:6px; }
+        .mockup-dots span { width:10px;height:10px;border-radius:50%;display:block; }
+        .mockup-dots span:nth-child(1){background:#ff5f57;}
+        .mockup-dots span:nth-child(2){background:#ffbd2e;}
+        .mockup-dots span:nth-child(3){background:#28c840;}
+        .mockup-url {
+            flex:1; background:rgba(255,255,255,0.06); border-radius:6px;
+            padding:4px 12px; font-size:0.65rem; color:rgba(255,255,255,0.4);
+            font-family: monospace;
+        }
+        .mockup-body { padding: 16px; display:flex; flex-direction:column; gap:12px; }
+
+        /* top row: 3 stat pills */
+        .mk-row { display:flex; gap:10px; }
+        .mk-stat {
+            flex:1; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+            border-radius:10px; padding:12px 14px;
+        }
+        .mk-stat-label { font-size:0.58rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+        .mk-stat-val { font-size:1.05rem; font-weight:800; margin-bottom:2px; }
+        .mk-stat-sub { font-size:0.58rem; color:rgba(255,255,255,0.35); }
+        .mk-green { color:#3AB54A; }
+        .mk-yellow { color:#f59e0b; }
+        .mk-blue { color:#60a5fa; }
+
+        /* chart area */
+        .mk-chart-box {
+            background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+            border-radius:10px; padding:14px 16px;
+        }
+        .mk-chart-title { font-size:0.65rem; color:rgba(255,255,255,0.5); margin-bottom:10px; font-weight:600; letter-spacing:0.5px; }
+        .mk-bars { display:flex; align-items:flex-end; gap:6px; height:60px; }
+        .mk-bar {
+            flex:1; border-radius:4px 4px 0 0;
+            background: linear-gradient(180deg, #3AB54A, rgba(58,181,74,0.3));
+            animation: barGrow 2s ease forwards;
+            transform-origin: bottom;
+        }
+        @keyframes barGrow { from{transform:scaleY(0)} to{transform:scaleY(1)} }
+
+        /* parameter table */
+        .mk-params { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+        .mk-param {
+            background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);
+            border-radius:8px; padding:10px 12px;
+            display:flex; align-items:center; justify-content:space-between;
+        }
+        .mk-param-name { font-size:0.65rem; color:rgba(255,255,255,0.5); font-weight:600; }
+        .mk-param-val { font-size:0.75rem; font-weight:800; }
+        .mk-ok { color:#3AB54A; }
+        .mk-warn { color:#f59e0b; }
+
+        /* status bar */
+        .mk-status { display:flex; align-items:center; justify-content:space-between; }
+        .mk-status-dot { display:flex; align-items:center; gap:6px; font-size:0.6rem; color:rgba(255,255,255,0.45); }
+        .mk-status-dot::before { content:''; width:7px;height:7px;border-radius:50%;background:#3AB54A;display:block;box-shadow:0 0 6px #3AB54A;animation:pulse 1.8s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+
+        /* floating badge */
+        .mockup-float {
+            position:absolute; bottom:-18px; left:-24px;
+            background:linear-gradient(135deg,#003DA5,#002580);
+            border:1px solid rgba(255,255,255,0.15);
+            border-radius:12px; padding:12px 18px;
+            display:flex; align-items:center; gap:10px;
+            box-shadow:0 8px 24px rgba(0,0,0,0.4);
+        }
+        .mockup-float .mf-icon { width:36px;height:36px;background:rgba(58,181,74,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#3AB54A;font-size:1rem; }
+        .mockup-float .mf-text { font-size:0.65rem; color:rgba(255,255,255,0.5); }
+        .mockup-float .mf-val { font-size:0.85rem; font-weight:800; color:#fff; }
+
+        @media(max-width:1024px){ .hero-inner { grid-template-columns:1fr; padding:60px 24px 80px; } .hero-left { text-align:center; } .hero-btns { justify-content:center; } .hero-stats { margin:0 auto; } .hero-right { display:none; } }
+        @media(max-width:480px){ .hero-stats { grid-template-columns:1fr 1fr; } }
 
         .home-svc { background:#fff; }
         .svc-mini-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:22px; }
@@ -83,20 +180,104 @@
         <div class="hero-blob hero-blob-2"></div>
         <div class="hero-blob hero-blob-3"></div>
         <div class="hero-inner">
-            <div class="hero-badge"><i class="fas fa-award"></i> Berdiri Sejak 2020 &nbsp;·&nbsp; Bekasi, Indonesia</div>
-            <h1 class="hero-title">PT. <span class="hl">Fanka Solusi</span><br>Indonesia</h1>
-            <p class="hero-tagline">— ALL SERVICES ONE GOAL —</p>
-            <p class="hero-desc">Perusahaan engineering terpercaya yang menyediakan solusi komprehensif di bidang teknik sipil, mekanikal, elektrikal, kimia, dan lingkungan sejak 2020.</p>
-            <div class="hero-btns">
-                <a href="services.html" class="btn btn-green"><i class="fas fa-briefcase"></i> Lihat Layanan Kami</a>
-                <a href="contact.html" class="btn btn-outline-white"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+
+            <!-- LEFT: Text -->
+            <div class="hero-left">
+                <div class="hero-badge"><i class="fas fa-award"></i> Berdiri Sejak 2020 &nbsp;·&nbsp; Bekasi, Indonesia</div>
+                <h1 class="hero-title">Engineering &amp;<br><span class="hl">Integration Solutions</span><br>Industrial Reliability</h1>
+                <p class="hero-desc">PT. Fanka Solusi Indonesia menyediakan solusi engineering komprehensif di bidang CEMS, lingkungan, mekanikal, sipil, dan IT. Efisien, andal, dan sesuai regulasi.</p>
+                <div class="hero-btns">
+                    <a href="services.html" class="btn btn-green"><i class="fas fa-briefcase"></i> Lihat Layanan</a>
+                    <a href="contact.html" class="btn btn-outline-white"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+                    <a href="projects.html" class="btn btn-outline-white"><i class="fas fa-folder-open"></i> Proyek Kami</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-box"><div class="stat-num" data-target="5">0</div><div class="stat-lbl">Tahun Pengalaman</div></div>
+                    <div class="stat-box"><div class="stat-num" data-target="47">0</div><div class="stat-lbl">Proyek Selesai</div></div>
+                    <div class="stat-box"><div class="stat-num" data-target="30">0</div><div class="stat-lbl">Klien &amp; Mitra</div></div>
+                    <div class="stat-box"><div class="stat-num" data-target="4">0</div><div class="stat-lbl">Divisi Bisnis</div></div>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="stat-box"><div class="stat-num" data-target="5">0</div><div class="stat-lbl">Tahun Pengalaman</div></div>
-                <div class="stat-box"><div class="stat-num" data-target="47">0</div><div class="stat-lbl">Proyek Selesai</div></div>
-                <div class="stat-box"><div class="stat-num" data-target="30">0</div><div class="stat-lbl">Klien &amp; Mitra</div></div>
-                <div class="stat-box"><div class="stat-num" data-target="4">0</div><div class="stat-lbl">Divisi Bisnis</div></div>
+
+            <!-- RIGHT: Dashboard Mockup -->
+            <div class="hero-right">
+                <div class="mockup-wrap">
+                    <div class="mockup-browser">
+                        <div class="mockup-bar">
+                            <div class="mockup-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="mockup-url">app.fanka-cems.co.id/dashboard</div>
+                        </div>
+                        <div class="mockup-body">
+                            <!-- Stat pills -->
+                            <div class="mk-row">
+                                <div class="mk-stat">
+                                    <div class="mk-stat-label">Total Alat CEMS</div>
+                                    <div class="mk-stat-val mk-green">47</div>
+                                    <div class="mk-stat-sub">Unit terpantau</div>
+                                </div>
+                                <div class="mk-stat">
+                                    <div class="mk-stat-label">Uptime Sistem</div>
+                                    <div class="mk-stat-val mk-yellow">99.2%</div>
+                                    <div class="mk-stat-sub">30 hari terakhir</div>
+                                </div>
+                                <div class="mk-stat">
+                                    <div class="mk-stat-label">Lokasi Aktif</div>
+                                    <div class="mk-stat-val mk-blue">15+</div>
+                                    <div class="mk-stat-sub">Kota di Indonesia</div>
+                                </div>
+                            </div>
+                            <!-- Chart -->
+                            <div class="mk-chart-box">
+                                <div class="mk-chart-title">EMISI MONITORING — 7 HARI TERAKHIR (mg/Nm³)</div>
+                                <div class="mk-bars">
+                                    <div class="mk-bar" style="height:45%;animation-delay:0s"></div>
+                                    <div class="mk-bar" style="height:70%;animation-delay:0.1s;background:linear-gradient(180deg,#60a5fa,rgba(96,165,250,0.3))"></div>
+                                    <div class="mk-bar" style="height:55%;animation-delay:0.2s"></div>
+                                    <div class="mk-bar" style="height:85%;animation-delay:0.3s;background:linear-gradient(180deg,#60a5fa,rgba(96,165,250,0.3))"></div>
+                                    <div class="mk-bar" style="height:60%;animation-delay:0.4s"></div>
+                                    <div class="mk-bar" style="height:40%;animation-delay:0.5s;background:linear-gradient(180deg,#60a5fa,rgba(96,165,250,0.3))"></div>
+                                    <div class="mk-bar" style="height:75%;animation-delay:0.6s"></div>
+                                </div>
+                            </div>
+                            <!-- Parameters -->
+                            <div class="mk-params">
+                                <div class="mk-param">
+                                    <div class="mk-param-name">SO₂</div>
+                                    <div class="mk-param-val mk-ok">12.4 mg/m³</div>
+                                </div>
+                                <div class="mk-param">
+                                    <div class="mk-param-name">NOₓ</div>
+                                    <div class="mk-param-val mk-ok">38.7 mg/m³</div>
+                                </div>
+                                <div class="mk-param">
+                                    <div class="mk-param-name">CO</div>
+                                    <div class="mk-param-val mk-warn">87.2 mg/m³</div>
+                                </div>
+                                <div class="mk-param">
+                                    <div class="mk-param-name">Debu (PM)</div>
+                                    <div class="mk-param-val mk-ok">24.1 mg/m³</div>
+                                </div>
+                            </div>
+                            <!-- Status bar -->
+                            <div class="mk-status">
+                                <div class="mk-status-dot">Sistem Online — Real-time monitoring aktif</div>
+                                <div style="font-size:0.58rem;color:rgba(255,255,255,0.3);">Update: baru saja</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating badge -->
+                    <div class="mockup-float">
+                        <div class="mf-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <div class="mf-text">Compliance Rate</div>
+                            <div class="mf-val">100% Sesuai KLHK</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -196,13 +377,15 @@
             }
             requestAnimationFrame(step);
         }
-        new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting && !ran) {
-                ran = true;
-                document.querySelectorAll('.stat-num[data-target]').forEach((el,i) =>
-                    setTimeout(() => runCounter(el, +el.dataset.target), i*120));
-            }
-        }, {threshold:0.4}).observe(heroStats);
+        if (heroStats) {
+            new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting && !ran) {
+                    ran = true;
+                    document.querySelectorAll('.stat-num[data-target]').forEach((el,i) =>
+                        setTimeout(() => runCounter(el, +el.dataset.target), i*120));
+                }
+            }, {threshold:0.4}).observe(heroStats);
+        }
     </script>
 </body>
 </html>
