@@ -197,142 +197,10 @@
         </div>
     </section>
 
+    <script src="js/articles.js"></script>
     <script src="js/shared.js"></script>
     <script>
-    const ARTICLES = [
-        {
-            id: 1, featured: true,
-            cat: 'cems', catLabel: 'Teknologi CEMS',
-            title: 'Strategi Implementasi CEMS untuk Memenuhi Regulasi KLHK Terbaru 2025',
-            excerpt: 'Kementerian Lingkungan Hidup dan Kehutanan (KLHK) memperketat regulasi pemantauan emisi cerobong industri. Berikut strategi terbaik implementasi CEMS yang efisien, akurat, dan sesuai standar PermenLHK No. 13 Tahun 2021 untuk industri energi, petrokimia, dan manufaktur di Indonesia.',
-            author: 'Tim Fanka Solusi',
-            avatar: 'FS',
-            date: '2 Juni 2026',
-            readTime: '6 menit',
-            icon: 'fa-industry'
-        },
-        {
-            id: 2, featured: false,
-            cat: 'proyek', catLabel: 'Proyek & Update',
-            title: 'Proyek Selesai: Audit CEMS di PLTU Cirebon Power 660 MW',
-            excerpt: 'Tim Quanta Proust Indonesia berhasil menyelesaikan audit RCA dan RATA di PLTU Cirebon Power dengan hasil compliance rate 100%. Proses audit berlangsung selama 5 hari dengan pemantauan penuh terhadap parameter SO₂, NOₓ, CO, dan debu.',
-            author: 'Quanta Proust Team',
-            avatar: 'QP',
-            date: '28 Mei 2026',
-            readTime: '4 menit',
-            icon: 'fa-hard-hat'
-        },
-        {
-            id: 3, featured: false,
-            cat: 'lingk', catLabel: 'Lingkungan',
-            title: 'Manfaat Monitoring Emisi Kontinu untuk Industri Pengeringan dan Pengolahan',
-            excerpt: 'Proses pengeringan dalam skala industri merupakan salah satu aktivitas yang paling mengonsumsi energi sekaligus menghasilkan emisi signifikan. CEMS yang terpasang tepat membantu industri mengidentifikasi titik inefisiensi dan mengurangi emisi secara nyata.',
-            author: 'Dian Komalasari',
-            avatar: 'DK',
-            date: '25 Mei 2026',
-            readTime: '5 menit',
-            icon: 'fa-leaf'
-        },
-        {
-            id: 4, featured: false,
-            cat: 'cems', catLabel: 'Teknologi CEMS',
-            title: 'Solusi CEMS untuk Meningkatkan Visibilitas Emisi Antar Fasilitas',
-            excerpt: 'Mengelola satu lokasi industri sudah merupakan tantangan besar, apalagi jika perusahaan harus mengawasi kepatuhan lingkungan di banyak fasilitas sekaligus. Platform monitoring terpusat berbasis cloud hadir sebagai solusinya.',
-            author: 'Rizky Wiratama',
-            avatar: 'RW',
-            date: '20 Mei 2026',
-            readTime: '5 menit',
-            icon: 'fa-chart-network'
-        },
-        {
-            id: 5, featured: false,
-            cat: 'it', catLabel: 'IT & Sistem',
-            title: 'Pengembangan DAS (Data Acquisition System) untuk Integrasi Multi-Sensor CEMS',
-            excerpt: 'Sistem akuisisi data yang handal adalah tulang punggung operasional CEMS. Tim IT Fanka Solusi mengembangkan solusi DAS berbasis open-protocol yang mampu mengintegrasikan berbagai merek sensor dan analyzer dalam satu platform terpusat.',
-            author: 'Andri Julyardhani',
-            avatar: 'AJ',
-            date: '15 Mei 2026',
-            readTime: '7 menit',
-            icon: 'fa-server'
-        },
-        {
-            id: 6, featured: false,
-            cat: 'proyek', catLabel: 'Proyek & Update',
-            title: 'Update Proyek: Commissioning CEMS di PT Pupuk Kaltim Bontang',
-            excerpt: 'Proses commissioning dan performance test sistem CEMS di kompleks pabrik pupuk terbesar di Indonesia berjalan sesuai jadwal. Fanka Solusi Indonesia menangani instalasi 8 titik pemantauan emisi cerobong dengan analyzer Gasmet dan OPSIS.',
-            author: 'Faisal Andriansyah',
-            avatar: 'FA',
-            date: '10 Mei 2026',
-            readTime: '4 menit',
-            icon: 'fa-flask'
-        },
-        {
-            id: 7, featured: false,
-            cat: 'lingk', catLabel: 'Lingkungan',
-            title: 'Regulasi PROPER 2026: Apa yang Berubah untuk Industri Pertambangan?',
-            excerpt: 'Program Penilaian Peringkat Kinerja Perusahaan (PROPER) 2026 membawa sejumlah perubahan signifikan pada kriteria penilaian emisi udara. Industri pertambangan wajib memahami update regulasi ini agar tetap kompeten di peringkat BIRU atau lebih tinggi.',
-            author: 'Idzny Qur\'any',
-            avatar: 'IQ',
-            date: '5 Mei 2026',
-            readTime: '6 menit',
-            icon: 'fa-balance-scale'
-        },
-        {
-            id: 8, featured: false,
-            cat: 'cems', catLabel: 'Teknologi CEMS',
-            title: 'Perbandingan Analyzer: Gasmet FTIR vs OPSIS Cross-Stack untuk Monitoring SO₂',
-            excerpt: 'Memilih analyzer yang tepat untuk aplikasi spesifik sangat menentukan akurasi data dan biaya maintenance jangka panjang. Artikel ini membandingkan dua teknologi unggulan: Gasmet FTIR dan OPSIS cross-stack dalam kondisi operasional industri Indonesia.',
-            author: 'Kartino',
-            avatar: 'KT',
-            date: '28 Apr 2026',
-            readTime: '8 menit',
-            icon: 'fa-microscope'
-        },
-        {
-            id: 9, featured: false,
-            cat: 'umum', catLabel: 'Umum',
-            title: 'Fanka Solusi Indonesia Raih Kepercayaan 30+ Klien dalam 5 Tahun Beroperasi',
-            excerpt: 'Memasuki tahun ke-5, PT. Fanka Solusi Indonesia terus berkembang dengan portfolio lebih dari 47 proyek yang telah diselesaikan. Milestone ini dicapai berkat kepercayaan klien-klien terkemuka seperti PLN Group, Pertamina, Pupuk Indonesia, dan PT Freeport Indonesia.',
-            author: 'Muhammad Fitrah',
-            avatar: 'MF',
-            date: '20 Apr 2026',
-            readTime: '3 menit',
-            icon: 'fa-trophy'
-        },
-        {
-            id: 10, featured: false,
-            cat: 'it', catLabel: 'IT & Sistem',
-            title: 'Implementasi IoT untuk Remote Monitoring CEMS di Lokasi Terpencil',
-            excerpt: 'Tantangan monitoring emisi di daerah terpencil — mulai dari keterbatasan jaringan hingga kondisi cuaca ekstrem — dapat diatasi dengan solusi IoT yang tepat. Tim IT Fanka Solusi merancang sistem yang mampu beroperasi dengan konektivitas minimal.',
-            author: 'Gilang Ramdani',
-            avatar: 'GR',
-            date: '12 Apr 2026',
-            readTime: '6 menit',
-            icon: 'fa-wifi'
-        },
-        {
-            id: 11, featured: false,
-            cat: 'proyek', catLabel: 'Proyek & Update',
-            title: 'Proyek Selesai: Instalasi AQMS di Kawasan Industri Morowali',
-            excerpt: 'Sistem pemantauan kualitas udara ambien (AQMS) berhasil diinstalasi dan dikalibrasi di kawasan nikel Morowali. Sistem ini memantau 10 parameter kualitas udara secara real-time dan terintegrasi dengan dashboard KLHK melalui protokol SINASDOK.',
-            author: 'Tim Fanka Solusi',
-            avatar: 'FS',
-            date: '5 Apr 2026',
-            readTime: '4 menit',
-            icon: 'fa-wind'
-        },
-        {
-            id: 12, featured: false,
-            cat: 'lingk', catLabel: 'Lingkungan',
-            title: 'Noise Monitoring: Standar dan Prosedur Pengukuran Kebisingan Industri',
-            excerpt: 'Pemantauan kebisingan lingkungan merupakan bagian dari persyaratan AMDAL dan izin lingkungan. Artikel ini membahas standar KEP-48/MENLH/11/1996, prosedur pengukuran yang benar, dan pentingnya monitoring berkelanjutan di sekitar kawasan industri.',
-            author: 'Jessica A',
-            avatar: 'JA',
-            date: '28 Mar 2026',
-            readTime: '5 menit',
-            icon: 'fa-volume-up'
-        },
-    ];
+    // ARTICLES array is loaded from js/articles.js (included above)
 
     const CAT_ICON_CLASS = {
         cems: 'cat-cems', proyek: 'cat-proyek', lingk: 'cat-lingk', it: 'cat-it', umum: 'cat-umum'
@@ -358,6 +226,7 @@
     function renderCard(a, featured) {
         const placeholderClass = CAT_ICON_CLASS[a.cat] || 'cat-umum';
         const badgeClass = CAT_BADGE_CLASS[a.cat] || 'cat-umum-badge';
+        const articleUrl = `article.html?id=${a.id}`;
         const imgHTML = `
             <div class="news-img">
                 <div class="news-img-placeholder ${placeholderClass}">
@@ -375,13 +244,13 @@
                         <div class="news-meta-author">${a.author}</div>
                         <div class="news-meta-date"><i class="far fa-calendar-alt"></i> ${a.date} &nbsp;·&nbsp; <i class="far fa-clock"></i> ${a.readTime}</div>
                     </div>
-                    <a href="#" class="news-read-btn" onclick="return false;">Baca <i class="fas fa-arrow-right"></i></a>
+                    <a href="${articleUrl}" class="news-read-btn">Baca <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>`;
         if (featured) {
-            return `<div class="news-card news-featured reveal">${imgHTML}${bodyHTML}</div>`;
+            return `<a href="${articleUrl}" class="news-card news-featured reveal" style="text-decoration:none;color:inherit;">${imgHTML}${bodyHTML}</a>`;
         }
-        return `<div class="news-card reveal">${imgHTML}${bodyHTML}</div>`;
+        return `<a href="${articleUrl}" class="news-card reveal" style="text-decoration:none;color:inherit;">${imgHTML}${bodyHTML}</a>`;
     }
 
     function render() {
