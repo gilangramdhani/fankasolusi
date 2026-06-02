@@ -49,7 +49,7 @@
             background: #fff; border-radius: 16px;
             border: 1px solid var(--border); overflow: hidden;
             transition: all 0.3s; display: flex; flex-direction: column;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer;
         }
         .news-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
 
@@ -244,13 +244,13 @@
                         <div class="news-meta-author">${a.author}</div>
                         <div class="news-meta-date"><i class="far fa-calendar-alt"></i> ${a.date} &nbsp;·&nbsp; <i class="far fa-clock"></i> ${a.readTime}</div>
                     </div>
-                    <a href="${articleUrl}" class="news-read-btn">Baca <i class="fas fa-arrow-right"></i></a>
+                    <a href="${articleUrl}" class="news-read-btn" onclick="event.stopPropagation()">Baca <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>`;
         if (featured) {
-            return `<a href="${articleUrl}" class="news-card news-featured reveal" style="text-decoration:none;color:inherit;">${imgHTML}${bodyHTML}</a>`;
+            return `<div class="news-card news-featured reveal" onclick="location.href='${articleUrl}'">${imgHTML}${bodyHTML}</div>`;
         }
-        return `<a href="${articleUrl}" class="news-card reveal" style="text-decoration:none;color:inherit;">${imgHTML}${bodyHTML}</a>`;
+        return `<div class="news-card reveal" onclick="location.href='${articleUrl}'">${imgHTML}${bodyHTML}</div>`;
     }
 
     function render() {
