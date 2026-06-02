@@ -7,6 +7,7 @@ const PAGES = {
     'projects.html':      'projects',
     'clients.html':       'clients',
     'team.html':          'team',
+    'news.html':          'news',
     'contact.html':       'contact',
     'quanta-proust.html': 'products',
     'fankacy.html':       'products',
@@ -63,6 +64,7 @@ function injectNavbar() {
       <li><a href="projects.html" class="${active==='projects'?'active-link':''}">Projects</a></li>
       <li><a href="clients.html"  class="${active==='clients' ?'active-link':''}">Clients</a></li>
       <li><a href="team.html"     class="${active==='team'    ?'active-link':''}">Team</a></li>
+      <li><a href="news.html"     class="${active==='news'    ?'active-link':''}">News</a></li>
       <li><a href="contact.html"  class="${active==='contact' ?'active-link':''}">Contact</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Hubungi Kami</a></li>
     </ul>
@@ -128,6 +130,7 @@ function injectFooter() {
             <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Proyek</a></li>
             <li><a href="clients.html"><i class="fas fa-chevron-right"></i> Klien</a></li>
             <li><a href="team.html"><i class="fas fa-chevron-right"></i> Tim</a></li>
+            <li><a href="news.html"><i class="fas fa-chevron-right"></i> News &amp; Artikel</a></li>
             <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Kontak</a></li>
           </ul>
         </div>

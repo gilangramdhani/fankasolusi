@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="News & Artikel PT. Fanka Solusi Indonesia - Berita terbaru, insight industri, dan update proyek CEMS, engineering, dan lingkungan.">
+    <title>News &amp; Artikel | PT. Fanka Solusi Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Filter Bar ── */
+        .filter-bar {
+            display: flex; align-items: center; gap: 10px;
+            flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .filter-btn {
+            padding: 7px 18px; border-radius: 50px; border: 1px solid var(--border);
+            background: #fff; color: var(--text-gray); font-size: 0.78rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary); color: #fff; border-color: var(--primary);
+        }
+        .search-wrap {
+            margin-left: auto; position: relative;
+        }
+        .search-wrap input {
+            padding: 8px 16px 8px 38px; border-radius: 50px;
+            border: 1px solid var(--border); font-size: 0.8rem;
+            font-family: inherit; outline: none; width: 220px;
+            transition: border-color 0.2s;
+        }
+        .search-wrap input:focus { border-color: var(--primary); }
+        .search-wrap i {
+            position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+            color: var(--text-gray); font-size: 0.8rem;
+        }
+
+        /* ── Article Grid ── */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .news-card {
+            background: #fff; border-radius: 16px;
+            border: 1px solid var(--border); overflow: hidden;
+            transition: all 0.3s; display: flex; flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .news-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+
+        /* Image area */
+        .news-img {
+            position: relative; overflow: hidden;
+            aspect-ratio: 16/9; background: #e5e7eb;
+        }
+        .news-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .news-card:hover .news-img img { transform: scale(1.06); }
+
+        /* Placeholder image (when no real image) */
+        .news-img-placeholder {
+            width: 100%; height: 100%; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 3rem; color: rgba(255,255,255,0.6);
+        }
+        .news-img-placeholder.cat-cems   { background: linear-gradient(135deg,#003DA5,#0050cc); }
+        .news-img-placeholder.cat-proyek { background: linear-gradient(135deg,#065f46,#059669); }
+        .news-img-placeholder.cat-lingk  { background: linear-gradient(135deg,#7c3aed,#5B4FCF); }
+        .news-img-placeholder.cat-it     { background: linear-gradient(135deg,#0f4c81,#2778c4); }
+        .news-img-placeholder.cat-umum   { background: linear-gradient(135deg,#92400e,#d97706); }
+
+        /* Badge overlay on image */
+        .news-cat-badge {
+            position: absolute; top: 14px; left: 14px;
+            padding: 4px 12px; border-radius: 50px;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 1px;
+            text-transform: uppercase; backdrop-filter: blur(6px);
+        }
+        .cat-cems-badge   { background: rgba(0,61,165,0.85);   color: #fff; }
+        .cat-proyek-badge { background: rgba(5,150,105,0.85);   color: #fff; }
+        .cat-lingk-badge  { background: rgba(91,79,207,0.85);   color: #fff; }
+        .cat-it-badge     { background: rgba(15,76,129,0.85);    color: #fff; }
+        .cat-umum-badge   { background: rgba(217,119,6,0.85);    color: #fff; }
+
+        /* Card body */
+        .news-body { padding: 22px 24px 20px; flex: 1; display: flex; flex-direction: column; }
+        .news-title {
+            font-size: 0.98rem; font-weight: 800; color: var(--heading);
+            line-height: 1.45; margin-bottom: 10px;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .news-excerpt {
+            font-size: 0.8rem; color: var(--text-gray); line-height: 1.75;
+            flex: 1; margin-bottom: 16px;
+            display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        }
+
+        /* Meta bar */
+        .news-meta {
+            display: flex; align-items: center; gap: 14px;
+            border-top: 1px solid var(--border); padding-top: 14px; margin-top: auto;
+        }
+        .news-avatar {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: linear-gradient(135deg,var(--primary),#1a56c4);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
+        }
+        .news-meta-info { flex: 1; min-width: 0; }
+        .news-meta-author { font-size: 0.72rem; font-weight: 700; color: var(--heading); }
+        .news-meta-date   { font-size: 0.66rem; color: var(--text-gray); margin-top: 1px; }
+        .news-read-btn {
+            font-size: 0.72rem; font-weight: 700; color: var(--primary);
+            display: flex; align-items: center; gap: 4px;
+            text-decoration: none; white-space: nowrap; transition: gap 0.2s;
+        }
+        .news-read-btn:hover { gap: 8px; }
+
+        /* Featured (full-width first card) */
+        .news-featured {
+            grid-column: 1 / -1;
+            display: grid; grid-template-columns: 1.4fr 1fr;
+            border-radius: 16px; overflow: hidden;
+        }
+        .news-featured .news-img { aspect-ratio: unset; min-height: 300px; }
+        .news-featured .news-body { padding: 36px 40px; }
+        .news-featured .news-title { font-size: 1.4rem; -webkit-line-clamp: 3; }
+        .news-featured .news-excerpt { -webkit-line-clamp: 5; font-size: 0.88rem; }
+
+        /* No results */
+        .no-results { grid-column: 1/-1; text-align: center; padding: 60px 0; color: var(--text-gray); }
+        .no-results i { font-size: 2.5rem; margin-bottom: 14px; display: block; opacity: 0.3; }
+
+        /* Pagination */
+        .pagination {
+            display: flex; justify-content: center; gap: 8px; margin-top: 48px;
+        }
+        .page-btn {
+            width: 38px; height: 38px; border-radius: 8px; border: 1px solid var(--border);
+            background: #fff; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 0.8rem; font-weight: 600; color: var(--text-gray);
+            transition: all 0.2s; font-family: inherit;
+        }
+        .page-btn:hover, .page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        @media(max-width:1024px) { .news-grid { grid-template-columns: repeat(2,1fr); } .news-featured { grid-template-columns: 1fr; } .news-featured .news-img { min-height: 220px; } }
+        @media(max-width:640px)  { .news-grid { grid-template-columns: 1fr; } .search-wrap { margin-left:0; width:100%; } .search-wrap input { width:100%; } }
+    </style>
+</head>
+<body>
+
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Page header">
+        <div class="container page-hero-inner">
+            <div class="ph-badge"><i class="fas fa-newspaper"></i> BERITA &amp; ARTIKEL</div>
+            <h1>News &amp; <span class="hl">Insight</span></h1>
+            <p>Berita terbaru, update proyek, dan artikel industri seputar CEMS, engineering, dan lingkungan</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>News &amp; Artikel</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <section class="sec" style="background:var(--bg);">
+        <div class="container">
+
+            <!-- Filter & Search -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-cat="all">Semua</button>
+                <button class="filter-btn" data-cat="cems">Teknologi CEMS</button>
+                <button class="filter-btn" data-cat="proyek">Proyek &amp; Update</button>
+                <button class="filter-btn" data-cat="lingk">Lingkungan</button>
+                <button class="filter-btn" data-cat="it">IT &amp; Sistem</button>
+                <button class="filter-btn" data-cat="umum">Umum</button>
+                <div class="search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari artikel..." aria-label="Cari artikel">
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="news-grid" id="newsGrid"></div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination"></div>
+
+        </div>
+    </section>
+
+    <script src="js/shared.js"></script>
+    <script>
+    const ARTICLES = [
+        {
+            id: 1, featured: true,
+            cat: 'cems', catLabel: 'Teknologi CEMS',
+            title: 'Strategi Implementasi CEMS untuk Memenuhi Regulasi KLHK Terbaru 2025',
+            excerpt: 'Kementerian Lingkungan Hidup dan Kehutanan (KLHK) memperketat regulasi pemantauan emisi cerobong industri. Berikut strategi terbaik implementasi CEMS yang efisien, akurat, dan sesuai standar PermenLHK No. 13 Tahun 2021 untuk industri energi, petrokimia, dan manufaktur di Indonesia.',
+            author: 'Tim Fanka Solusi',
+            avatar: 'FS',
+            date: '2 Juni 2026',
+            readTime: '6 menit',
+            icon: 'fa-industry'
+        },
+        {
+            id: 2, featured: false,
+            cat: 'proyek', catLabel: 'Proyek & Update',
+            title: 'Proyek Selesai: Audit CEMS di PLTU Cirebon Power 660 MW',
+            excerpt: 'Tim Quanta Proust Indonesia berhasil menyelesaikan audit RCA dan RATA di PLTU Cirebon Power dengan hasil compliance rate 100%. Proses audit berlangsung selama 5 hari dengan pemantauan penuh terhadap parameter SO₂, NOₓ, CO, dan debu.',
+            author: 'Quanta Proust Team',
+            avatar: 'QP',
+            date: '28 Mei 2026',
+            readTime: '4 menit',
+            icon: 'fa-hard-hat'
+        },
+        {
+            id: 3, featured: false,
+            cat: 'lingk', catLabel: 'Lingkungan',
+            title: 'Manfaat Monitoring Emisi Kontinu untuk Industri Pengeringan dan Pengolahan',
+            excerpt: 'Proses pengeringan dalam skala industri merupakan salah satu aktivitas yang paling mengonsumsi energi sekaligus menghasilkan emisi signifikan. CEMS yang terpasang tepat membantu industri mengidentifikasi titik inefisiensi dan mengurangi emisi secara nyata.',
+            author: 'Dian Komalasari',
+            avatar: 'DK',
+            date: '25 Mei 2026',
+            readTime: '5 menit',
+            icon: 'fa-leaf'
+        },
+        {
+            id: 4, featured: false,
+            cat: 'cems', catLabel: 'Teknologi CEMS',
+            title: 'Solusi CEMS untuk Meningkatkan Visibilitas Emisi Antar Fasilitas',
+            excerpt: 'Mengelola satu lokasi industri sudah merupakan tantangan besar, apalagi jika perusahaan harus mengawasi kepatuhan lingkungan di banyak fasilitas sekaligus. Platform monitoring terpusat berbasis cloud hadir sebagai solusinya.',
+            author: 'Rizky Wiratama',
+            avatar: 'RW',
+            date: '20 Mei 2026',
+            readTime: '5 menit',
+            icon: 'fa-chart-network'
+        },
+        {
+            id: 5, featured: false,
+            cat: 'it', catLabel: 'IT & Sistem',
+            title: 'Pengembangan DAS (Data Acquisition System) untuk Integrasi Multi-Sensor CEMS',
+            excerpt: 'Sistem akuisisi data yang handal adalah tulang punggung operasional CEMS. Tim IT Fanka Solusi mengembangkan solusi DAS berbasis open-protocol yang mampu mengintegrasikan berbagai merek sensor dan analyzer dalam satu platform terpusat.',
+            author: 'Andri Julyardhani',
+            avatar: 'AJ',
+            date: '15 Mei 2026',
+            readTime: '7 menit',
+            icon: 'fa-server'
+        },
+        {
+            id: 6, featured: false,
+            cat: 'proyek', catLabel: 'Proyek & Update',
+            title: 'Update Proyek: Commissioning CEMS di PT Pupuk Kaltim Bontang',
+            excerpt: 'Proses commissioning dan performance test sistem CEMS di kompleks pabrik pupuk terbesar di Indonesia berjalan sesuai jadwal. Fanka Solusi Indonesia menangani instalasi 8 titik pemantauan emisi cerobong dengan analyzer Gasmet dan OPSIS.',
+            author: 'Faisal Andriansyah',
+            avatar: 'FA',
+            date: '10 Mei 2026',
+            readTime: '4 menit',
+            icon: 'fa-flask'
+        },
+        {
+            id: 7, featured: false,
+            cat: 'lingk', catLabel: 'Lingkungan',
+            title: 'Regulasi PROPER 2026: Apa yang Berubah untuk Industri Pertambangan?',
+            excerpt: 'Program Penilaian Peringkat Kinerja Perusahaan (PROPER) 2026 membawa sejumlah perubahan signifikan pada kriteria penilaian emisi udara. Industri pertambangan wajib memahami update regulasi ini agar tetap kompeten di peringkat BIRU atau lebih tinggi.',
+            author: 'Idzny Qur\'any',
+            avatar: 'IQ',
+            date: '5 Mei 2026',
+            readTime: '6 menit',
+            icon: 'fa-balance-scale'
+        },
+        {
+            id: 8, featured: false,
+            cat: 'cems', catLabel: 'Teknologi CEMS',
+            title: 'Perbandingan Analyzer: Gasmet FTIR vs OPSIS Cross-Stack untuk Monitoring SO₂',
+            excerpt: 'Memilih analyzer yang tepat untuk aplikasi spesifik sangat menentukan akurasi data dan biaya maintenance jangka panjang. Artikel ini membandingkan dua teknologi unggulan: Gasmet FTIR dan OPSIS cross-stack dalam kondisi operasional industri Indonesia.',
+            author: 'Kartino',
+            avatar: 'KT',
+            date: '28 Apr 2026',
+            readTime: '8 menit',
+            icon: 'fa-microscope'
+        },
+        {
+            id: 9, featured: false,
+            cat: 'umum', catLabel: 'Umum',
+            title: 'Fanka Solusi Indonesia Raih Kepercayaan 30+ Klien dalam 5 Tahun Beroperasi',
+            excerpt: 'Memasuki tahun ke-5, PT. Fanka Solusi Indonesia terus berkembang dengan portfolio lebih dari 47 proyek yang telah diselesaikan. Milestone ini dicapai berkat kepercayaan klien-klien terkemuka seperti PLN Group, Pertamina, Pupuk Indonesia, dan PT Freeport Indonesia.',
+            author: 'Muhammad Fitrah',
+            avatar: 'MF',
+            date: '20 Apr 2026',
+            readTime: '3 menit',
+            icon: 'fa-trophy'
+        },
+        {
+            id: 10, featured: false,
+            cat: 'it', catLabel: 'IT & Sistem',
+            title: 'Implementasi IoT untuk Remote Monitoring CEMS di Lokasi Terpencil',
+            excerpt: 'Tantangan monitoring emisi di daerah terpencil — mulai dari keterbatasan jaringan hingga kondisi cuaca ekstrem — dapat diatasi dengan solusi IoT yang tepat. Tim IT Fanka Solusi merancang sistem yang mampu beroperasi dengan konektivitas minimal.',
+            author: 'Gilang Ramdani',
+            avatar: 'GR',
+            date: '12 Apr 2026',
+            readTime: '6 menit',
+            icon: 'fa-wifi'
+        },
+        {
+            id: 11, featured: false,
+            cat: 'proyek', catLabel: 'Proyek & Update',
+            title: 'Proyek Selesai: Instalasi AQMS di Kawasan Industri Morowali',
+            excerpt: 'Sistem pemantauan kualitas udara ambien (AQMS) berhasil diinstalasi dan dikalibrasi di kawasan nikel Morowali. Sistem ini memantau 10 parameter kualitas udara secara real-time dan terintegrasi dengan dashboard KLHK melalui protokol SINASDOK.',
+            author: 'Tim Fanka Solusi',
+            avatar: 'FS',
+            date: '5 Apr 2026',
+            readTime: '4 menit',
+            icon: 'fa-wind'
+        },
+        {
+            id: 12, featured: false,
+            cat: 'lingk', catLabel: 'Lingkungan',
+            title: 'Noise Monitoring: Standar dan Prosedur Pengukuran Kebisingan Industri',
+            excerpt: 'Pemantauan kebisingan lingkungan merupakan bagian dari persyaratan AMDAL dan izin lingkungan. Artikel ini membahas standar KEP-48/MENLH/11/1996, prosedur pengukuran yang benar, dan pentingnya monitoring berkelanjutan di sekitar kawasan industri.',
+            author: 'Jessica A',
+            avatar: 'JA',
+            date: '28 Mar 2026',
+            readTime: '5 menit',
+            icon: 'fa-volume-up'
+        },
+    ];
+
+    const CAT_ICON_CLASS = {
+        cems: 'cat-cems', proyek: 'cat-proyek', lingk: 'cat-lingk', it: 'cat-it', umum: 'cat-umum'
+    };
+    const CAT_BADGE_CLASS = {
+        cems: 'cat-cems-badge', proyek: 'cat-proyek-badge', lingk: 'cat-lingk-badge', it: 'cat-it-badge', umum: 'cat-umum-badge'
+    };
+
+    const PER_PAGE = 9;
+    let currentCat = 'all';
+    let currentSearch = '';
+    let currentPage = 1;
+
+    function filteredArticles() {
+        return ARTICLES.filter(a => {
+            const matchCat = currentCat === 'all' || a.cat === currentCat;
+            const q = currentSearch.toLowerCase();
+            const matchSearch = !q || a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q) || a.catLabel.toLowerCase().includes(q);
+            return matchCat && matchSearch;
+        });
+    }
+
+    function renderCard(a, featured) {
+        const placeholderClass = CAT_ICON_CLASS[a.cat] || 'cat-umum';
+        const badgeClass = CAT_BADGE_CLASS[a.cat] || 'cat-umum-badge';
+        const imgHTML = `
+            <div class="news-img">
+                <div class="news-img-placeholder ${placeholderClass}">
+                    <i class="fas ${a.icon}"></i>
+                </div>
+                <div class="news-cat-badge ${badgeClass}">${a.catLabel}</div>
+            </div>`;
+        const bodyHTML = `
+            <div class="news-body">
+                <div class="news-title">${a.title}</div>
+                <div class="news-excerpt">${a.excerpt}</div>
+                <div class="news-meta">
+                    <div class="news-avatar">${a.avatar}</div>
+                    <div class="news-meta-info">
+                        <div class="news-meta-author">${a.author}</div>
+                        <div class="news-meta-date"><i class="far fa-calendar-alt"></i> ${a.date} &nbsp;·&nbsp; <i class="far fa-clock"></i> ${a.readTime}</div>
+                    </div>
+                    <a href="#" class="news-read-btn" onclick="return false;">Baca <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>`;
+        if (featured) {
+            return `<div class="news-card news-featured reveal">${imgHTML}${bodyHTML}</div>`;
+        }
+        return `<div class="news-card reveal">${imgHTML}${bodyHTML}</div>`;
+    }
+
+    function render() {
+        const grid = document.getElementById('newsGrid');
+        const pagEl = document.getElementById('pagination');
+        const articles = filteredArticles();
+
+        if (!articles.length) {
+            grid.innerHTML = `<div class="no-results"><i class="fas fa-search"></i><p>Tidak ada artikel yang ditemukan.</p></div>`;
+            pagEl.innerHTML = '';
+            return;
+        }
+
+        // First article on page 1 is featured
+        const isFeaturedPage = currentPage === 1 && currentCat === 'all' && !currentSearch;
+        let pageArticles;
+        if (isFeaturedPage) {
+            pageArticles = articles.slice(0, PER_PAGE);
+        } else {
+            const start = (currentPage - 1) * PER_PAGE;
+            pageArticles = articles.slice(start, start + PER_PAGE);
+        }
+
+        let html = '';
+        pageArticles.forEach((a, i) => {
+            html += renderCard(a, isFeaturedPage && i === 0);
+        });
+        grid.innerHTML = html;
+
+        // Re-trigger reveal for new cards
+        if (window._revealObs) {
+            grid.querySelectorAll('.reveal').forEach(el => {
+                el.classList.remove('vis');
+                window._revealObs.observe(el);
+            });
+        }
+
+        // Pagination
+        const totalPages = Math.ceil(articles.length / PER_PAGE);
+        if (totalPages <= 1) { pagEl.innerHTML = ''; return; }
+        let pHtml = '';
+        if (currentPage > 1) pHtml += `<button class="page-btn" data-p="${currentPage-1}"><i class="fas fa-chevron-left"></i></button>`;
+        for (let p = 1; p <= totalPages; p++) {
+            pHtml += `<button class="page-btn${p===currentPage?' active':''}" data-p="${p}">${p}</button>`;
+        }
+        if (currentPage < totalPages) pHtml += `<button class="page-btn" data-p="${currentPage+1}"><i class="fas fa-chevron-right"></i></button>`;
+        pagEl.innerHTML = pHtml;
+        pagEl.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentPage = parseInt(btn.dataset.p);
+                render();
+                document.querySelector('.filter-bar').scrollIntoView({behavior:'smooth', block:'start'});
+            });
+        });
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCat = btn.dataset.cat;
+            currentPage = 1;
+            render();
+        });
+    });
+
+    // Search
+    let searchTimer;
+    document.getElementById('searchInput').addEventListener('input', e => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+            currentSearch = e.target.value.trim();
+            currentPage = 1;
+            render();
+        }, 300);
+    });
+
+    // Expose reveal observer after shared.js sets it up
+    document.addEventListener('DOMContentLoaded', () => {
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        window._revealObs = obs;
+        render();
+    });
+    </script>
+</body>
+</html>
